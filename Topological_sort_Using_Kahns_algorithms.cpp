@@ -5,34 +5,32 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-  private:
-  void dfs(int node, int vis[], stack<int> &st,vector<vector<int>>& adj) {
-		vis[node] = 1;
-		for (auto it : adj[node]) {
-			if (!vis[it]) dfs(it, vis, st, adj);
-		}
-		st.push(node);
-	}
-  
   public:
     // Function to return list containing vertices in Topological order.
     vector<int> topologicalSort(vector<vector<int>>& adj) {
         // Your code here
-        int V=adj.size();
-        int vis[V] = {0};
-		stack<int> st;
-		for (int i = 0; i < V; i++) {
-			if (!vis[i]) {
-				dfs(i, vis, st, adj);
-			}
-		}
-
-		vector<int> ans;
-		while (!st.empty()) {
-			ans.push_back(st.top());
-			st.pop();
-		}
-		return ans;
+        int n=adj.size();
+        int inEdge[n]={0};
+        for(int i=0;i<n;i++){
+            for(auto it:adj[i]){
+                inEdge[it]++;
+            }
+        }
+        queue<int> q;
+        for(int i=0;i<n;i++){
+            if(inEdge[i]==0) q.push(i);
+        }
+        vector<int> ans;
+        while(!q.empty()){
+            int u=q.front();
+            q.pop();
+            ans.push_back(u);
+            for(auto it:adj[u]){
+                inEdge[it]--;
+                if(inEdge[it]==0) q.push(it);
+            }
+        }
+        return ans;
     }
 };
 
@@ -82,6 +80,9 @@ int main() {
         vector<int> res = obj.topologicalSort(adj);
 
         cout << check(N, res, adj) << endl;
+
+        cout << "~"
+             << "\n";
     }
 
     return 0;
