@@ -1,0 +1,1 @@
+{"name":"Local: Dijkstra","url":"c:\\Users\\mdabu\\OneDrive\\Documents\\Graphs\\Dijkstra.cpp","tests":[{"id":1730909738509,"input":"7 8\n1 2 3\n1 3 5\n3 4 1\n4 6 1\n2 5 6\n5 6 1\n5 7 2\n3 7 12\n1 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\mdabu\\OneDrive\\Documents\\Graphs\\Dijkstra.cpp","group":"local","local":true}
