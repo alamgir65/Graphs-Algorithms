@@ -28,7 +28,7 @@ void bellman_ford(int s,int n){
 int main(){
     
     int n,m; cin>>n>>m;
-    for(int i=0;i<n;i++){
+    for(int i=0;i<m;i++){
         int u,v,w; cin>>u>>v>>w;
         adj[u].push_back({v,w});
     }
